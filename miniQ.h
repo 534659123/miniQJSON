@@ -40,7 +40,25 @@ class miniQ
 		
 		
 		/*解码*/
-		//void Decoding();    //解码
+		void DateBuffing(String _JsonBuff);    //解码 传入
+		uint16_t oper();   //返回操作符
+		uint16_t DateSizeNum(); //返回数组负载的数组长度
+		void Decoding(float *date);   //变量 float 数组
+		void Decoding(float &date);   //变量 float
+		void Decoding(int *date);   //变量 int 数组
+		void Decoding(int &date);   //变量 int 
+		void Decoding(long *date);   //变量 long 数组
+		void Decoding(long &date);   //变量 long
+		void Decoding(uint8_t *date); //变量 uint8数组
+		void Decoding(uint8_t &date); //变量 uint8
+		void Decoding(uint16_t *date); //变量 uint16数组
+		void Decoding(uint16_t &date); //变量 uint16
+		void Decoding(uint32_t *date); //变量 uint32数组
+		void Decoding(uint32_t &date); //变量 uint32
+		void Decoding(char *date); //字符串
+		
+		
+		//void DateBuffOUT(String _JsonDate,f);   //变量可能性    char，short，int或long（有符号或无符号）
 		
 		String JsonBuff = "";
 

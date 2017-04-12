@@ -386,3 +386,330 @@ void miniQ::Encoding(uint16_t _Operator,String date,String SoName = "NULL",Strin
 	
 	 miniQDate.printTo(JsonBuff);	
 }
+/*************************************************************************************/
+//解码部分
+/*************************************************************************************/
+
+void miniQ::DateBuffing(String _JsonBuff)
+{
+	JsonBuff = "";
+	JsonBuff =_JsonBuff;
+}
+
+// 返回操作码
+uint16_t miniQ::oper()
+{
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
+	  if (root.success()) 
+	  {   //判断对象是否符合标准
+       uint16_t __Operator = root["O"];
+       return __Operator;
+     }
+}
+
+//返回负载数据的数组数量
+uint16_t miniQ::DateSizeNum()
+{
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
+	  if (root.success()) 
+	  {   //判断对象是否符合标准
+       uint16_t __Operator = root["D"].size();
+       return __Operator;
+     }
+}
+
+// float 数组解码
+
+void miniQ::Decoding(float *date)
+{
+	
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
+	  if (root.success()) 
+	  {   //判断对象是否符合标准
+       uint16_t __Operator = root["D"].size();
+	   
+	   if(__Operator != 0)
+	   {
+		   for(uint16_t a =0;a < __Operator;a++)
+		   {
+			   *(date + a) = root["D"][a];
+		   }
+	   }else
+	   {
+		   //*date = root["D"];
+	   }
+	   
+	  }
+
+}
+
+// float 解码
+
+void miniQ::Decoding(float &date)
+{
+	
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
+	  if (root.success()) 
+	  {   //判断对象是否符合标准
+       uint16_t __Operator = root["D"].size();
+	   
+	   if(__Operator == 0)
+	   {
+		  date = root["D"];
+	   }
+	
+	   
+	  }
+
+}
+
+
+/*  int */
+void miniQ::Decoding(int *date)
+{
+	
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
+	  if (root.success()) 
+	  {   //判断对象是否符合标准
+       uint16_t __Operator = root["D"].size();
+	   
+	   if(__Operator != 0)
+	   {
+		   for(uint16_t a =0;a < __Operator;a++)
+		   {
+			   *(date + a) = root["D"][a];
+		   }
+	   }else
+	   {
+		   //*date = root["D"];
+	   }
+	   
+	  }
+
+}
+
+// int 解码
+
+void miniQ::Decoding(int &date)
+{
+	
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
+	  if (root.success()) 
+	  {   //判断对象是否符合标准
+       uint16_t __Operator = root["D"].size();
+	   
+	   if(__Operator == 0)
+	   {
+		  date = root["D"];
+	   }
+	
+	   
+	  }
+
+}
+
+
+/*************  long ******************/
+/*  long 数组 */
+void miniQ::Decoding(long *date)
+{
+	
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
+	  if (root.success()) 
+	  {   //判断对象是否符合标准
+       uint16_t __Operator = root["D"].size();
+	   
+	   if(__Operator != 0)
+	   {
+		   for(uint16_t a =0;a < __Operator;a++)
+		   {
+			   *(date + a) = root["D"][a];
+		   }
+	   }else
+	   {
+		   //*date = root["D"];
+	   }
+	   
+	  }
+
+}
+
+// long 解码
+
+void miniQ::Decoding(long &date)
+{
+	
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
+	  if (root.success()) 
+	  {   //判断对象是否符合标准
+       uint16_t __Operator = root["D"].size();
+	   
+	   if(__Operator == 0)
+	   {
+		  date = root["D"];
+	   }
+	
+	  }
+}
+/*************  uint8 ******************/
+/*  uint8_t 数组 */
+void miniQ::Decoding(uint8_t *date)
+{
+	
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
+	  if (root.success()) 
+	  {   //判断对象是否符合标准
+       uint16_t __Operator = root["D"].size();
+	   
+	   if(__Operator != 0)
+	   {
+		   for(uint16_t a =0;a < __Operator;a++)
+		   {
+			   *(date + a) = root["D"][a];
+		   }
+	   }else
+	   {
+		   //*date = root["D"];
+	   }
+	   
+	  }
+
+}
+
+// uint8_t 解码
+
+void miniQ::Decoding(uint8_t &date)
+{
+	
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
+	  if (root.success()) 
+	  {   //判断对象是否符合标准
+       uint16_t __Operator = root["D"].size();
+	   
+	   if(__Operator == 0)
+	   {
+		  date = root["D"];
+	   }
+	
+	  }
+}
+/*************  uint16 ******************/
+/*  uint16_t 数组 */
+void miniQ::Decoding(uint16_t *date)
+{
+	
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
+	  if (root.success()) 
+	  {   //判断对象是否符合标准
+       uint16_t __Operator = root["D"].size();
+	   
+	   if(__Operator != 0)
+	   {
+		   for(uint16_t a =0;a < __Operator;a++)
+		   {
+			   *(date + a) = root["D"][a];
+		   }
+	   }else
+	   {
+		   //*date = root["D"];
+	   }
+	   
+	  }
+
+}
+
+// uint16_t 解码
+
+void miniQ::Decoding(uint16_t &date)
+{
+	
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
+	  if (root.success()) 
+	  {   //判断对象是否符合标准
+       uint16_t __Operator = root["D"].size();
+	   
+	   if(__Operator == 0)
+	   {
+		  date = root["D"];
+	   }
+	
+	  }
+}
+
+/*************  uint32 ******************/
+/*  uint32_t 数组 */
+void miniQ::Decoding(uint32_t *date)
+{
+	
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
+	  if (root.success()) 
+	  {   //判断对象是否符合标准
+       uint16_t __Operator = root["D"].size();
+	   
+	   if(__Operator != 0)
+	   {
+		   for(uint16_t a =0;a < __Operator;a++)
+		   {
+			   *(date + a) = root["D"][a];
+		   }
+	   }else
+	   {
+		   //*date = root["D"];
+	   }
+	   
+	  }
+
+}
+
+// uint32_t 解码
+
+void miniQ::Decoding(uint32_t &date)
+{
+	
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
+	  if (root.success()) 
+	  {   //判断对象是否符合标准
+       uint16_t __Operator = root["D"].size();
+	   
+	   if(__Operator == 0)
+	   {
+		  date = root["D"];
+	   }
+	
+	  }
+}
+
+/*************  String ******************/
+
+void miniQ::Decoding(char *date)
+{
+	const char* _temp;
+	
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
+	  if (root.success()) 
+	  {   //判断对象是否符合标准
+	    _temp = root["D"]; //获取数据
+	    uint16_t __Operator = strlen(_temp);  //获取字符串长度
+		for(uint16_t a =0;a < __Operator;a++)
+		{
+			*(date + a) = _temp[a];
+		}
+	   
+	  }
+
+}
