@@ -22,21 +22,21 @@ class miniQ
 	public:
 		void begin();
 		/*±àÂë*/
-		void Encoding(uint16_t _Operator,String SoName = "NULL",String desName = "NULL");   //±àÂë
-		void Encoding(uint16_t _Operator, uint8_t *date, int size, String SoName = "NULL", String desName = "NULL");   //±àÂë byteÓëbyteÊı×é
-		void Encoding(uint16_t _Operator, uint8_t date, String SoName = "NULL", String desName = "NULL");   //±àÂë byteÓëbyteÊı×é
-		//void Encoding(uint16_t _Operator,char date, uint8_t size,String SoName = "NULL",String desName = "NULL");   //±àÂë char
-		void Encoding(uint16_t _Operator,int *date, int size, String SoName = "NULL", String desName = "NULL");   //±àÂë
-		void Encoding(uint16_t _Operator,int date, String SoName = "NULL", String desName = "NULL");   //±àÂë
-		void Encoding(uint16_t _Operator,float *date, int size, String SoName = "NULL", String desName = "NULL");   //±àÂë
-		void Encoding(uint16_t _Operator,float date, String SoName = "NULL", String desName = "NULL");   //±àÂë
-		void Encoding(uint16_t _Operator,long *date, int size, String SoName = "NULL", String desName = "NULL");   //±àÂë
-		void Encoding(uint16_t _Operator,long date, String SoName = "NULL", String desName = "NULL");   //±àÂë
-		void Encoding(uint16_t _Operator,uint16_t *date, int size, String SoName = "NULL", String desName = "NULL");   //±àÂë
-		void Encoding(uint16_t _Operator,uint16_t date, String SoName = "NULL", String desName = "NULL");   //±àÂë
-		void Encoding(uint16_t _Operator,uint32_t *date, int size, String SoName = "NULL", String desName = "NULL");   //±àÂë
-		void Encoding(uint16_t _Operator,uint32_t date, String SoName = "NULL", String desName = "NULL");   //±àÂë
-		void Encoding(uint16_t _Operator,String date,String SoName = "NULL",String desName = "NULL");   //±àÂë ×Ö·û´®
+		void Encoding(uint16_t _Operator,String SoName,String desName);   //±àÂë
+		void Encoding(uint16_t _Operator, uint8_t *date, int size, String SoName, String desName);   //±àÂë byteÓëbyteÊı×é
+		void Encoding(uint16_t _Operator, uint8_t date, String SoName, String desName);   //±àÂë byteÓëbyteÊı×é
+		//void Encoding(uint16_t _Operator,char date, uint8_t size,String SoName,String desName);   //±àÂë char
+		void Encoding(uint16_t _Operator,int *date, int size, String SoName, String desName);   //±àÂë
+		void Encoding(uint16_t _Operator,int date, String SoName, String desName);   //±àÂë
+		void Encoding(uint16_t _Operator,float *date, int size, String SoName, String desName);   //±àÂë
+		void Encoding(uint16_t _Operator,float date, String SoName, String desName);   //±àÂë
+		void Encoding(uint16_t _Operator,long *date, int size, String SoName, String desName);   //±àÂë
+		void Encoding(uint16_t _Operator,long date, String SoName, String desName);   //±àÂë
+		void Encoding(uint16_t _Operator,uint16_t *date, int size, String SoName, String desName);   //±àÂë
+		void Encoding(uint16_t _Operator,uint16_t date, String SoName, String desName);   //±àÂë
+		void Encoding(uint16_t _Operator,uint32_t *date, int size, String SoName, String desName);   //±àÂë
+		void Encoding(uint16_t _Operator,uint32_t date, String SoName, String desName);   //±àÂë
+		void Encoding(uint16_t _Operator,String date,String SoName,String desName);   //±àÂë ×Ö·û´®
 		
 		
 		/*½âÂë*/
