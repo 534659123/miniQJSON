@@ -28,7 +28,7 @@ void miniQ::Encoding(uint16_t _Operator,String SoName = "NULL",String desName = 
 }
 /********************************************/
 //unit8_t 数组
-void miniQ::Encoding(uint16_t _Operator,uint8_t* date, int size,String SoName = "NULL",String desName = "NULL")
+void miniQ::Encoding(uint16_t _Operator,uint8_t* data, int size,String SoName = "NULL",String desName = "NULL")
 {
 	 JsonBuff = "";  //清空缓冲区
 	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -37,10 +37,10 @@ void miniQ::Encoding(uint16_t _Operator,uint8_t* date, int size,String SoName = 
 	 
 	 /*具体负载业务*/
 
-		 JsonArray& data = miniQDate.createNestedArray(DateBuff);  //创建嵌套数组
+		 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //创建嵌套数组
 		 for(byte a = 0; a<size;a++)  //循环将外部数据读入
 		 {
-			 data.add(*(date + a));  //将数据依次存入嵌套数组中
+			 Data.add(*(data + a));  //将数据依次存入嵌套数组中
 		 }
 	 
 	 /*名称处理部分*/
@@ -58,7 +58,7 @@ void miniQ::Encoding(uint16_t _Operator,uint8_t* date, int size,String SoName = 
 }
 /********************************************/
 //unit8_t 
-void miniQ::Encoding(uint16_t _Operator,uint8_t date,String SoName = "NULL",String desName = "NULL")
+void miniQ::Encoding(uint16_t _Operator,uint8_t data,String SoName = "NULL",String desName = "NULL")
 {
 	 JsonBuff = "";  //清空缓冲区
 	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -67,7 +67,7 @@ void miniQ::Encoding(uint16_t _Operator,uint8_t date,String SoName = "NULL",Stri
 	 
 	 /*具体负载业务*/
 	
-	miniQDate[DateBuff] = date; //存入负载
+	miniQDate[DateBuff] = data; //存入负载
 	 
 	 /*名称处理部分*/
 	if(SoName != "NULL")
@@ -83,7 +83,7 @@ void miniQ::Encoding(uint16_t _Operator,uint8_t date,String SoName = "NULL",Stri
 }
 /****************************************************************************/
 // int 数组类型
-void miniQ::Encoding(uint16_t _Operator,int* date,int size, String SoName = "NULL", String desName = "NULL")
+void miniQ::Encoding(uint16_t _Operator,int* data,int size, String SoName = "NULL", String desName = "NULL")
 {
 	 JsonBuff = "";  //清空缓冲区
 	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -91,10 +91,10 @@ void miniQ::Encoding(uint16_t _Operator,int* date,int size, String SoName = "NUL
 	 miniQDate[Operator] = _Operator;    //操作符
 	 
 	 /*具体负载业务*/
-	 	 JsonArray& data = miniQDate.createNestedArray(DateBuff);  //创建嵌套数组
+	 	 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //创建嵌套数组
 		 for(byte a = 0; a<size;a++)  //循环将外部数据读入
 		 {
-			 data.add(*(date + a));  //将数据依次存入嵌套数组中
+			 Data.add(*(data + a));  //将数据依次存入嵌套数组中
 		 }
 
 	 /*名称处理部分*/
@@ -113,7 +113,7 @@ void miniQ::Encoding(uint16_t _Operator,int* date,int size, String SoName = "NUL
 
 /****************************************************************************/
 // int 类型
-void miniQ::Encoding(uint16_t _Operator,int date, String SoName = "NULL", String desName = "NULL")
+void miniQ::Encoding(uint16_t _Operator,int data, String SoName = "NULL", String desName = "NULL")
 {
 	 JsonBuff = "";  //清空缓冲区
 	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -121,7 +121,7 @@ void miniQ::Encoding(uint16_t _Operator,int date, String SoName = "NULL", String
 	 miniQDate[Operator] = _Operator;    //操作符
 	 
 	 /*具体负载业务*/
-		 miniQDate[DateBuff] = date;
+		 miniQDate[DateBuff] = data;
 	 
 	 /*名称处理部分*/
 	if(SoName != "NULL")
@@ -140,7 +140,7 @@ void miniQ::Encoding(uint16_t _Operator,int date, String SoName = "NULL", String
 
 /****************************************************************************/
 // float 数组类型
-void miniQ::Encoding(uint16_t _Operator,float *date, int size, String SoName = "NULL", String desName = "NULL")
+void miniQ::Encoding(uint16_t _Operator,float *data, int size, String SoName = "NULL", String desName = "NULL")
 {
 	 JsonBuff = "";  //清空缓冲区
 	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -149,10 +149,10 @@ void miniQ::Encoding(uint16_t _Operator,float *date, int size, String SoName = "
 	 
 	 /*具体负载业务*/
 
-	 JsonArray& data = miniQDate.createNestedArray(DateBuff);  //创建嵌套数组
+	 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //创建嵌套数组
 	 for(byte a = 0; a<size;a++)  //循环将外部数据读入
 	 {
-		 data.add(double_with_n_digits(*(date + a),2));  //将数据依次存入嵌套数组中
+		 Data.add(double_with_n_digits(*(data + a),2));  //将数据依次存入嵌套数组中
 	 }
 
 	 
@@ -171,7 +171,7 @@ void miniQ::Encoding(uint16_t _Operator,float *date, int size, String SoName = "
 
 /****************************************************************************/
 // float 类型
-void miniQ::Encoding(uint16_t _Operator,float date, String SoName = "NULL", String desName = "NULL")
+void miniQ::Encoding(uint16_t _Operator,float data, String SoName = "NULL", String desName = "NULL")
 {
 	 JsonBuff = "";  //清空缓冲区
 	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -180,7 +180,7 @@ void miniQ::Encoding(uint16_t _Operator,float date, String SoName = "NULL", Stri
 	 
 	 /*具体负载业务*/
 
-		miniQDate[DateBuff] = double_with_n_digits(date,2);
+		miniQDate[DateBuff] = double_with_n_digits(data,2);
 	 
 	 /*名称处理部分*/
 	if(SoName != "NULL")
@@ -198,7 +198,7 @@ void miniQ::Encoding(uint16_t _Operator,float date, String SoName = "NULL", Stri
 
 /****************************************************************************/
 // long 数组类型
-void miniQ::Encoding(uint16_t _Operator,long *date, int size, String SoName = "NULL", String desName = "NULL")
+void miniQ::Encoding(uint16_t _Operator,long *data, int size, String SoName = "NULL", String desName = "NULL")
 {
 	 JsonBuff = "";  //清空缓冲区
 	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -207,10 +207,10 @@ void miniQ::Encoding(uint16_t _Operator,long *date, int size, String SoName = "N
 	 
 	 /*具体负载业务*/
 
-		 JsonArray& data = miniQDate.createNestedArray(DateBuff);  //创建嵌套数组
+		 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //创建嵌套数组
 		 for(byte a = 0; a<size;a++)  //循环将外部数据读入
 		 {
-			 data.add(*(date + a));  //将数据依次存入嵌套数组中
+			 Data.add(*(data + a));  //将数据依次存入嵌套数组中
 		 }
 
 	 /*名称处理部分*/
@@ -228,7 +228,7 @@ void miniQ::Encoding(uint16_t _Operator,long *date, int size, String SoName = "N
 
 /****************************************************************************/
 // long 类型
-void miniQ::Encoding(uint16_t _Operator,long date, String SoName = "NULL", String desName = "NULL")
+void miniQ::Encoding(uint16_t _Operator,long data, String SoName = "NULL", String desName = "NULL")
 {
 	 JsonBuff = "";  //清空缓冲区
 	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -237,7 +237,7 @@ void miniQ::Encoding(uint16_t _Operator,long date, String SoName = "NULL", Strin
 	 
 	 /*具体负载业务*/
 
-		miniQDate[DateBuff] = date;
+		miniQDate[DateBuff] = data;
 	 
 	 /*名称处理部分*/
 	if(SoName != "NULL")
@@ -254,7 +254,7 @@ void miniQ::Encoding(uint16_t _Operator,long date, String SoName = "NULL", Strin
 
 /****************************************************************************/
 // uint16 数组类型
-void miniQ::Encoding(uint16_t _Operator,uint16_t *date, int size, String SoName = "NULL", String desName = "NULL")
+void miniQ::Encoding(uint16_t _Operator,uint16_t *data, int size, String SoName = "NULL", String desName = "NULL")
 {
 	 JsonBuff = "";  //清空缓冲区
 	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -263,10 +263,10 @@ void miniQ::Encoding(uint16_t _Operator,uint16_t *date, int size, String SoName 
 	 
 	 /*具体负载业务*/
 
-		 JsonArray& data = miniQDate.createNestedArray(DateBuff);  //创建嵌套数组
+		 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //创建嵌套数组
 		 for(byte a = 0; a<size;a++)  //循环将外部数据读入
 		 {
-			 data.add(*(date + a));  //将数据依次存入嵌套数组中
+			 Data.add(*(data + a));  //将数据依次存入嵌套数组中
 		 }
 
 	 /*名称处理部分*/
@@ -284,7 +284,7 @@ void miniQ::Encoding(uint16_t _Operator,uint16_t *date, int size, String SoName 
 
 /****************************************************************************/
 // uint16 类型
-void miniQ::Encoding(uint16_t _Operator,uint16_t date, String SoName = "NULL", String desName = "NULL")
+void miniQ::Encoding(uint16_t _Operator,uint16_t data, String SoName = "NULL", String desName = "NULL")
 {
 	 JsonBuff = "";  //清空缓冲区
 	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -293,7 +293,7 @@ void miniQ::Encoding(uint16_t _Operator,uint16_t date, String SoName = "NULL", S
 	 
 	 /*具体负载业务*/
 
-		miniQDate[DateBuff] = date;
+		miniQDate[DateBuff] = data;
 	 
 	 /*名称处理部分*/
 	if(SoName != "NULL")
@@ -311,7 +311,7 @@ void miniQ::Encoding(uint16_t _Operator,uint16_t date, String SoName = "NULL", S
 
 /****************************************************************************/
 // uint32 数组类型
-void miniQ::Encoding(uint16_t _Operator,uint32_t *date, int size, String SoName = "NULL", String desName = "NULL")
+void miniQ::Encoding(uint16_t _Operator,uint32_t *data, int size, String SoName = "NULL", String desName = "NULL")
 {
 	 JsonBuff = "";  //清空缓冲区
 	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -320,10 +320,10 @@ void miniQ::Encoding(uint16_t _Operator,uint32_t *date, int size, String SoName 
 	 
 	 /*具体负载业务*/
 
-		 JsonArray& data = miniQDate.createNestedArray(DateBuff);  //创建嵌套数组
+		 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //创建嵌套数组
 		 for(byte a = 0; a<size;a++)  //循环将外部数据读入
 		 {
-			 data.add(*(date + a));  //将数据依次存入嵌套数组中
+			 Data.add(*(data + a));  //将数据依次存入嵌套数组中
 		 }
 
 	 /*名称处理部分*/
@@ -341,7 +341,7 @@ void miniQ::Encoding(uint16_t _Operator,uint32_t *date, int size, String SoName 
 
 /****************************************************************************/
 // uint32 类型
-void miniQ::Encoding(uint16_t _Operator,uint32_t date, String SoName = "NULL", String desName = "NULL")
+void miniQ::Encoding(uint16_t _Operator,uint32_t data, String SoName = "NULL", String desName = "NULL")
 {
 	 JsonBuff = "";  //清空缓冲区
 	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -350,7 +350,7 @@ void miniQ::Encoding(uint16_t _Operator,uint32_t date, String SoName = "NULL", S
 	 
 	 /*具体负载业务*/
 
-		miniQDate[DateBuff] = date;
+		miniQDate[DateBuff] = data;
 	 
 	 /*名称处理部分*/
 	if(SoName != "NULL")
@@ -367,13 +367,13 @@ void miniQ::Encoding(uint16_t _Operator,uint32_t date, String SoName = "NULL", S
 
 /******************************************************************************/
 //String
-void miniQ::Encoding(uint16_t _Operator,String date,String SoName = "NULL",String desName = "NULL")
+void miniQ::Encoding(uint16_t _Operator,String data,String SoName = "NULL",String desName = "NULL")
 {
 	JsonBuff = "";  //清空缓冲区
 	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
 	JsonObject& miniQDate = jsonBuffer.createObject();   //创建对象
 	miniQDate[Operator] = _Operator;    //操作符
-	miniQDate[DateBuff] = date;
+	miniQDate[DateBuff] = data;
 	/*名称处理部分*/
 	if(SoName != "NULL")
 	{
@@ -422,7 +422,7 @@ uint16_t miniQ::DateSizeNum()
 
 // float 数组解码
 
-void miniQ::Decoding(float *date)
+void miniQ::Decoding(float *data)
 {
 	
 	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -435,11 +435,11 @@ void miniQ::Decoding(float *date)
 	   {
 		   for(uint16_t a =0;a < __Operator;a++)
 		   {
-			   *(date + a) = root[DateBuff][a];
+			   *(data + a) = root[DateBuff][a];
 		   }
 	   }else
 	   {
-		   //*date = root[DateBuff];
+		   //*data = root[DateBuff];
 	   }
 	   
 	  }
@@ -448,7 +448,7 @@ void miniQ::Decoding(float *date)
 
 // float 解码
 
-void miniQ::Decoding(float &date)
+void miniQ::Decoding(float &data)
 {
 	
 	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -459,7 +459,7 @@ void miniQ::Decoding(float &date)
 	   
 	   if(__Operator == 0)
 	   {
-		  date = root[DateBuff];
+		  data = root[DateBuff];
 	   }
 	
 	   
@@ -469,7 +469,7 @@ void miniQ::Decoding(float &date)
 
 
 /*  int */
-void miniQ::Decoding(int *date)
+void miniQ::Decoding(int *data)
 {
 	
 	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -482,11 +482,11 @@ void miniQ::Decoding(int *date)
 	   {
 		   for(uint16_t a =0;a < __Operator;a++)
 		   {
-			   *(date + a) = root[DateBuff][a];
+			   *(data + a) = root[DateBuff][a];
 		   }
 	   }else
 	   {
-		   //*date = root[DateBuff];
+		   //*data = root[DateBuff];
 	   }
 	   
 	  }
@@ -495,7 +495,7 @@ void miniQ::Decoding(int *date)
 
 // int 解码
 
-void miniQ::Decoding(int &date)
+void miniQ::Decoding(int &data)
 {
 	
 	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -506,7 +506,7 @@ void miniQ::Decoding(int &date)
 	   
 	   if(__Operator == 0)
 	   {
-		  date = root[DateBuff];
+		  data = root[DateBuff];
 	   }
 	
 	   
@@ -517,7 +517,7 @@ void miniQ::Decoding(int &date)
 
 /*************  long ******************/
 /*  long 数组 */
-void miniQ::Decoding(long *date)
+void miniQ::Decoding(long *data)
 {
 	
 	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -530,11 +530,11 @@ void miniQ::Decoding(long *date)
 	   {
 		   for(uint16_t a =0;a < __Operator;a++)
 		   {
-			   *(date + a) = root[DateBuff][a];
+			   *(data + a) = root[DateBuff][a];
 		   }
 	   }else
 	   {
-		   //*date = root[DateBuff];
+		   //*data = root[DateBuff];
 	   }
 	   
 	  }
@@ -543,7 +543,7 @@ void miniQ::Decoding(long *date)
 
 // long 解码
 
-void miniQ::Decoding(long &date)
+void miniQ::Decoding(long &data)
 {
 	
 	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -554,14 +554,14 @@ void miniQ::Decoding(long &date)
 	   
 	   if(__Operator == 0)
 	   {
-		  date = root[DateBuff];
+		  data = root[DateBuff];
 	   }
 	
 	  }
 }
 /*************  uint8 ******************/
 /*  uint8_t 数组 */
-void miniQ::Decoding(uint8_t *date)
+void miniQ::Decoding(uint8_t *data)
 {
 	
 	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -574,11 +574,11 @@ void miniQ::Decoding(uint8_t *date)
 	   {
 		   for(uint16_t a =0;a < __Operator;a++)
 		   {
-			   *(date + a) = root[DateBuff][a];
+			   *(data + a) = root[DateBuff][a];
 		   }
 	   }else
 	   {
-		   //*date = root[DateBuff];
+		   //*data = root[DateBuff];
 	   }
 	   
 	  }
@@ -587,7 +587,7 @@ void miniQ::Decoding(uint8_t *date)
 
 // uint8_t 解码
 
-void miniQ::Decoding(uint8_t &date)
+void miniQ::Decoding(uint8_t &data)
 {
 	
 	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -598,14 +598,14 @@ void miniQ::Decoding(uint8_t &date)
 	   
 	   if(__Operator == 0)
 	   {
-		  date = root[DateBuff];
+		  data = root[DateBuff];
 	   }
 	
 	  }
 }
 /*************  uint16 ******************/
 /*  uint16_t 数组 */
-void miniQ::Decoding(uint16_t *date)
+void miniQ::Decoding(uint16_t *data)
 {
 	
 	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -618,11 +618,11 @@ void miniQ::Decoding(uint16_t *date)
 	   {
 		   for(uint16_t a =0;a < __Operator;a++)
 		   {
-			   *(date + a) = root[DateBuff][a];
+			   *(data + a) = root[DateBuff][a];
 		   }
 	   }else
 	   {
-		   //*date = root[DateBuff];
+		   //*data = root[DateBuff];
 	   }
 	   
 	  }
@@ -631,7 +631,7 @@ void miniQ::Decoding(uint16_t *date)
 
 // uint16_t 解码
 
-void miniQ::Decoding(uint16_t &date)
+void miniQ::Decoding(uint16_t &data)
 {
 	
 	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -642,7 +642,7 @@ void miniQ::Decoding(uint16_t &date)
 	   
 	   if(__Operator == 0)
 	   {
-		  date = root[DateBuff];
+		  data = root[DateBuff];
 	   }
 	
 	  }
@@ -650,7 +650,7 @@ void miniQ::Decoding(uint16_t &date)
 
 /*************  uint32 ******************/
 /*  uint32_t 数组 */
-void miniQ::Decoding(uint32_t *date)
+void miniQ::Decoding(uint32_t *data)
 {
 	
 	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -663,11 +663,11 @@ void miniQ::Decoding(uint32_t *date)
 	   {
 		   for(uint16_t a =0;a < __Operator;a++)
 		   {
-			   *(date + a) = root[DateBuff][a];
+			   *(data + a) = root[DateBuff][a];
 		   }
 	   }else
 	   {
-		   //*date = root[DateBuff];
+		   //*data = root[DateBuff];
 	   }
 	   
 	  }
@@ -676,7 +676,7 @@ void miniQ::Decoding(uint32_t *date)
 
 // uint32_t 解码
 
-void miniQ::Decoding(uint32_t &date)
+void miniQ::Decoding(uint32_t &data)
 {
 	
 	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -687,7 +687,7 @@ void miniQ::Decoding(uint32_t &date)
 	   
 	   if(__Operator == 0)
 	   {
-		  date = root[DateBuff];
+		  data = root[DateBuff];
 	   }
 	
 	  }
@@ -695,7 +695,7 @@ void miniQ::Decoding(uint32_t &date)
 
 /*************  String ******************/
 
-void miniQ::Decoding(char *date)
+void miniQ::Decoding(char *data)
 {
 	const char* _temp;
 	
@@ -707,7 +707,7 @@ void miniQ::Decoding(char *date)
 	    uint16_t __Operator = strlen(_temp);  //获取字符串长度
 		for(uint16_t a =0;a < __Operator;a++)
 		{
-			*(date + a) = _temp[a];
+			*(data + a) = _temp[a];
 		}
 	   
 	  }
