@@ -8,49 +8,49 @@ void miniQ::begin()
 /********************************************/
 void miniQ::Encoding(uint16_t _Operator,String SoName = "NULL",String desName = "NULL")
 {
-	 JsonBuff = "";  //Çå¿Õ»º³åÇø
-	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	 JsonObject& miniQDate = jsonBuffer.createObject();   //´´½¨¶ÔÏó
-	 miniQDate[Operator] = _Operator;    //²Ù×÷·û
+	 JsonBuff = "";  //æ¸…ç©ºç¼“å†²åŒº
+	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	 JsonObject& miniQDate = jsonBuffer.createObject();   //åˆ›å»ºå¯¹è±¡
+	 miniQDate[Operator] = _Operator;    //æ“ä½œç¬¦
 	 
-	 /*¾ßÌå¸ºÔØÒµÎñ*/
+	 /*å…·ä½“è´Ÿè½½ä¸šåŠ¡*/
 	 
 	if(SoName != "NULL")
 	{
-		miniQDate[OriginalName] = SoName;  //Ô´Éè±¸Ãû
+		miniQDate[OriginalName] = SoName;  //æºè®¾å¤‡å
 	}
 	if(desName != "NULL")
 	{
-		miniQDate[TargetName] = desName;  //Ä¿±êÉè±¸Ãû³Æ
+		miniQDate[TargetName] = desName;  //ç›®æ ‡è®¾å¤‡åç§°
 	}
 	 miniQDate.printTo(JsonBuff);
 	
 }
 /********************************************/
-//unit8_t Êı×é
+//unit8_t æ•°ç»„
 void miniQ::Encoding(uint16_t _Operator,uint8_t* data, int size,String SoName = "NULL",String desName = "NULL")
 {
-	 JsonBuff = "";  //Çå¿Õ»º³åÇø
-	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	 JsonObject& miniQDate = jsonBuffer.createObject();   //´´½¨¶ÔÏó
-	 miniQDate[Operator] = _Operator;    //²Ù×÷·û
+	 JsonBuff = "";  //æ¸…ç©ºç¼“å†²åŒº
+	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	 JsonObject& miniQDate = jsonBuffer.createObject();   //åˆ›å»ºå¯¹è±¡
+	 miniQDate[Operator] = _Operator;    //æ“ä½œç¬¦
 	 
-	 /*¾ßÌå¸ºÔØÒµÎñ*/
+	 /*å…·ä½“è´Ÿè½½ä¸šåŠ¡*/
 
-		 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //´´½¨Ç¶Ì×Êı×é
-		 for(byte a = 0; a<size;a++)  //Ñ­»·½«Íâ²¿Êı¾İ¶ÁÈë
+		 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //åˆ›å»ºåµŒå¥—æ•°ç»„
+		 for(byte a = 0; a<size;a++)  //å¾ªç¯å°†å¤–éƒ¨æ•°æ®è¯»å…¥
 		 {
-			 Data.add(*(data + a));  //½«Êı¾İÒÀ´Î´æÈëÇ¶Ì×Êı×éÖĞ
+			 Data.add(*(data + a));  //å°†æ•°æ®ä¾æ¬¡å­˜å…¥åµŒå¥—æ•°ç»„ä¸­
 		 }
 	 
-	 /*Ãû³Æ´¦Àí²¿·Ö*/
+	 /*åç§°å¤„ç†éƒ¨åˆ†*/
 	if(SoName != "NULL")
 	{
-		miniQDate[OriginalName] = SoName;  //Ô´Éè±¸Ãû
+		miniQDate[OriginalName] = SoName;  //æºè®¾å¤‡å
 	}
 	if(desName != "NULL")
 	{
-		miniQDate[TargetName] = desName;  //Ä¿±êÉè±¸Ãû³Æ
+		miniQDate[TargetName] = desName;  //ç›®æ ‡è®¾å¤‡åç§°
 	}
 	
 	 miniQDate.printTo(JsonBuff);
@@ -60,51 +60,51 @@ void miniQ::Encoding(uint16_t _Operator,uint8_t* data, int size,String SoName = 
 //unit8_t 
 void miniQ::Encoding(uint16_t _Operator,uint8_t data,String SoName = "NULL",String desName = "NULL")
 {
-	 JsonBuff = "";  //Çå¿Õ»º³åÇø
-	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	 JsonObject& miniQDate = jsonBuffer.createObject();   //´´½¨¶ÔÏó
-	 miniQDate[Operator] = _Operator;    //²Ù×÷·û
+	 JsonBuff = "";  //æ¸…ç©ºç¼“å†²åŒº
+	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	 JsonObject& miniQDate = jsonBuffer.createObject();   //åˆ›å»ºå¯¹è±¡
+	 miniQDate[Operator] = _Operator;    //æ“ä½œç¬¦
 	 
-	 /*¾ßÌå¸ºÔØÒµÎñ*/
+	 /*å…·ä½“è´Ÿè½½ä¸šåŠ¡*/
 	
-	miniQDate[DateBuff] = data; //´æÈë¸ºÔØ
+	miniQDate[DateBuff] = data; //å­˜å…¥è´Ÿè½½
 	 
-	 /*Ãû³Æ´¦Àí²¿·Ö*/
+	 /*åç§°å¤„ç†éƒ¨åˆ†*/
 	if(SoName != "NULL")
 	{
-		miniQDate[OriginalName] = SoName;  //Ô´Éè±¸Ãû
+		miniQDate[OriginalName] = SoName;  //æºè®¾å¤‡å
 	}
 	if(desName != "NULL")
 	{
-		miniQDate[TargetName] = desName;  //Ä¿±êÉè±¸Ãû³Æ
+		miniQDate[TargetName] = desName;  //ç›®æ ‡è®¾å¤‡åç§°
 	}
 	
 	 miniQDate.printTo(JsonBuff);
 }
 /****************************************************************************/
-// int Êı×éÀàĞÍ
+// int æ•°ç»„ç±»å‹
 void miniQ::Encoding(uint16_t _Operator,int* data,int size, String SoName = "NULL", String desName = "NULL")
 {
-	 JsonBuff = "";  //Çå¿Õ»º³åÇø
-	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	 JsonObject& miniQDate = jsonBuffer.createObject();   //´´½¨¶ÔÏó
-	 miniQDate[Operator] = _Operator;    //²Ù×÷·û
+	 JsonBuff = "";  //æ¸…ç©ºç¼“å†²åŒº
+	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	 JsonObject& miniQDate = jsonBuffer.createObject();   //åˆ›å»ºå¯¹è±¡
+	 miniQDate[Operator] = _Operator;    //æ“ä½œç¬¦
 	 
-	 /*¾ßÌå¸ºÔØÒµÎñ*/
-	 	 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //´´½¨Ç¶Ì×Êı×é
-		 for(byte a = 0; a<size;a++)  //Ñ­»·½«Íâ²¿Êı¾İ¶ÁÈë
+	 /*å…·ä½“è´Ÿè½½ä¸šåŠ¡*/
+	 	 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //åˆ›å»ºåµŒå¥—æ•°ç»„
+		 for(byte a = 0; a<size;a++)  //å¾ªç¯å°†å¤–éƒ¨æ•°æ®è¯»å…¥
 		 {
-			 Data.add(*(data + a));  //½«Êı¾İÒÀ´Î´æÈëÇ¶Ì×Êı×éÖĞ
+			 Data.add(*(data + a));  //å°†æ•°æ®ä¾æ¬¡å­˜å…¥åµŒå¥—æ•°ç»„ä¸­
 		 }
 
-	 /*Ãû³Æ´¦Àí²¿·Ö*/
+	 /*åç§°å¤„ç†éƒ¨åˆ†*/
 	if(SoName != "NULL")
 	{
-		miniQDate[OriginalName] = SoName;  //Ô´Éè±¸Ãû
+		miniQDate[OriginalName] = SoName;  //æºè®¾å¤‡å
 	}
 	if(desName != "NULL")
 	{
-		miniQDate[TargetName] = desName;  //Ä¿±êÉè±¸Ãû³Æ
+		miniQDate[TargetName] = desName;  //ç›®æ ‡è®¾å¤‡åç§°
 	}
 	
 	 miniQDate.printTo(JsonBuff);	
@@ -112,25 +112,25 @@ void miniQ::Encoding(uint16_t _Operator,int* data,int size, String SoName = "NUL
 
 
 /****************************************************************************/
-// int ÀàĞÍ
+// int ç±»å‹
 void miniQ::Encoding(uint16_t _Operator,int data, String SoName = "NULL", String desName = "NULL")
 {
-	 JsonBuff = "";  //Çå¿Õ»º³åÇø
-	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	 JsonObject& miniQDate = jsonBuffer.createObject();   //´´½¨¶ÔÏó
-	 miniQDate[Operator] = _Operator;    //²Ù×÷·û
+	 JsonBuff = "";  //æ¸…ç©ºç¼“å†²åŒº
+	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	 JsonObject& miniQDate = jsonBuffer.createObject();   //åˆ›å»ºå¯¹è±¡
+	 miniQDate[Operator] = _Operator;    //æ“ä½œç¬¦
 	 
-	 /*¾ßÌå¸ºÔØÒµÎñ*/
+	 /*å…·ä½“è´Ÿè½½ä¸šåŠ¡*/
 		 miniQDate[DateBuff] = data;
 	 
-	 /*Ãû³Æ´¦Àí²¿·Ö*/
+	 /*åç§°å¤„ç†éƒ¨åˆ†*/
 	if(SoName != "NULL")
 	{
-		miniQDate[OriginalName] = SoName;  //Ô´Éè±¸Ãû
+		miniQDate[OriginalName] = SoName;  //æºè®¾å¤‡å
 	}
 	if(desName != "NULL")
 	{
-		miniQDate[TargetName] = desName;  //Ä¿±êÉè±¸Ãû³Æ
+		miniQDate[TargetName] = desName;  //ç›®æ ‡è®¾å¤‡åç§°
 	}
 	
 	 miniQDate.printTo(JsonBuff);	
@@ -139,57 +139,57 @@ void miniQ::Encoding(uint16_t _Operator,int data, String SoName = "NULL", String
 
 
 /****************************************************************************/
-// float Êı×éÀàĞÍ
+// float æ•°ç»„ç±»å‹
 void miniQ::Encoding(uint16_t _Operator,float *data, int size, String SoName = "NULL", String desName = "NULL")
 {
-	 JsonBuff = "";  //Çå¿Õ»º³åÇø
-	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	 JsonObject& miniQDate = jsonBuffer.createObject();   //´´½¨¶ÔÏó
-	 miniQDate[Operator] = _Operator;    //²Ù×÷·û
+	 JsonBuff = "";  //æ¸…ç©ºç¼“å†²åŒº
+	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	 JsonObject& miniQDate = jsonBuffer.createObject();   //åˆ›å»ºå¯¹è±¡
+	 miniQDate[Operator] = _Operator;    //æ“ä½œç¬¦
 	 
-	 /*¾ßÌå¸ºÔØÒµÎñ*/
+	 /*å…·ä½“è´Ÿè½½ä¸šåŠ¡*/
 
-	 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //´´½¨Ç¶Ì×Êı×é
-	 for(byte a = 0; a<size;a++)  //Ñ­»·½«Íâ²¿Êı¾İ¶ÁÈë
+	 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //åˆ›å»ºåµŒå¥—æ•°ç»„
+	 for(byte a = 0; a<size;a++)  //å¾ªç¯å°†å¤–éƒ¨æ•°æ®è¯»å…¥
 	 {
-		 Data.add(double_with_n_digits(*(data + a),2));  //½«Êı¾İÒÀ´Î´æÈëÇ¶Ì×Êı×éÖĞ
+		 Data.add(double_with_n_digits(*(data + a),2));  //å°†æ•°æ®ä¾æ¬¡å­˜å…¥åµŒå¥—æ•°ç»„ä¸­
 	 }
 
 	 
-	 /*Ãû³Æ´¦Àí²¿·Ö*/
+	 /*åç§°å¤„ç†éƒ¨åˆ†*/
 	if(SoName != "NULL")
 	{
-		miniQDate[OriginalName] = SoName;  //Ô´Éè±¸Ãû
+		miniQDate[OriginalName] = SoName;  //æºè®¾å¤‡å
 	}
 	if(desName != "NULL")
 	{
-		miniQDate[TargetName] = desName;  //Ä¿±êÉè±¸Ãû³Æ
+		miniQDate[TargetName] = desName;  //ç›®æ ‡è®¾å¤‡åç§°
 	}
 	
 	 miniQDate.printTo(JsonBuff);	
 }
 
 /****************************************************************************/
-// float ÀàĞÍ
+// float ç±»å‹
 void miniQ::Encoding(uint16_t _Operator,float data, String SoName = "NULL", String desName = "NULL")
 {
-	 JsonBuff = "";  //Çå¿Õ»º³åÇø
-	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	 JsonObject& miniQDate = jsonBuffer.createObject();   //´´½¨¶ÔÏó
-	 miniQDate[Operator] = _Operator;    //²Ù×÷·û
+	 JsonBuff = "";  //æ¸…ç©ºç¼“å†²åŒº
+	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	 JsonObject& miniQDate = jsonBuffer.createObject();   //åˆ›å»ºå¯¹è±¡
+	 miniQDate[Operator] = _Operator;    //æ“ä½œç¬¦
 	 
-	 /*¾ßÌå¸ºÔØÒµÎñ*/
+	 /*å…·ä½“è´Ÿè½½ä¸šåŠ¡*/
 
 		miniQDate[DateBuff] = double_with_n_digits(data,2);
 	 
-	 /*Ãû³Æ´¦Àí²¿·Ö*/
+	 /*åç§°å¤„ç†éƒ¨åˆ†*/
 	if(SoName != "NULL")
 	{
-		miniQDate[OriginalName] = SoName;  //Ô´Éè±¸Ãû
+		miniQDate[OriginalName] = SoName;  //æºè®¾å¤‡å
 	}
 	if(desName != "NULL")
 	{
-		miniQDate[TargetName] = desName;  //Ä¿±êÉè±¸Ãû³Æ
+		miniQDate[TargetName] = desName;  //ç›®æ ‡è®¾å¤‡åç§°
 	}
 	
 	 miniQDate.printTo(JsonBuff);	
@@ -197,112 +197,112 @@ void miniQ::Encoding(uint16_t _Operator,float data, String SoName = "NULL", Stri
 
 
 /****************************************************************************/
-// long Êı×éÀàĞÍ
+// long æ•°ç»„ç±»å‹
 void miniQ::Encoding(uint16_t _Operator,long *data, int size, String SoName = "NULL", String desName = "NULL")
 {
-	 JsonBuff = "";  //Çå¿Õ»º³åÇø
-	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	 JsonObject& miniQDate = jsonBuffer.createObject();   //´´½¨¶ÔÏó
-	 miniQDate[Operator] = _Operator;    //²Ù×÷·û
+	 JsonBuff = "";  //æ¸…ç©ºç¼“å†²åŒº
+	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	 JsonObject& miniQDate = jsonBuffer.createObject();   //åˆ›å»ºå¯¹è±¡
+	 miniQDate[Operator] = _Operator;    //æ“ä½œç¬¦
 	 
-	 /*¾ßÌå¸ºÔØÒµÎñ*/
+	 /*å…·ä½“è´Ÿè½½ä¸šåŠ¡*/
 
-		 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //´´½¨Ç¶Ì×Êı×é
-		 for(byte a = 0; a<size;a++)  //Ñ­»·½«Íâ²¿Êı¾İ¶ÁÈë
+		 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //åˆ›å»ºåµŒå¥—æ•°ç»„
+		 for(byte a = 0; a<size;a++)  //å¾ªç¯å°†å¤–éƒ¨æ•°æ®è¯»å…¥
 		 {
-			 Data.add(*(data + a));  //½«Êı¾İÒÀ´Î´æÈëÇ¶Ì×Êı×éÖĞ
+			 Data.add(*(data + a));  //å°†æ•°æ®ä¾æ¬¡å­˜å…¥åµŒå¥—æ•°ç»„ä¸­
 		 }
 
-	 /*Ãû³Æ´¦Àí²¿·Ö*/
+	 /*åç§°å¤„ç†éƒ¨åˆ†*/
 	if(SoName != "NULL")
 	{
-		miniQDate[OriginalName] = SoName;  //Ô´Éè±¸Ãû
+		miniQDate[OriginalName] = SoName;  //æºè®¾å¤‡å
 	}
 	if(desName != "NULL")
 	{
-		miniQDate[TargetName] = desName;  //Ä¿±êÉè±¸Ãû³Æ
+		miniQDate[TargetName] = desName;  //ç›®æ ‡è®¾å¤‡åç§°
 	}
 	
 	 miniQDate.printTo(JsonBuff);	
 }
 
 /****************************************************************************/
-// long ÀàĞÍ
+// long ç±»å‹
 void miniQ::Encoding(uint16_t _Operator,long data, String SoName = "NULL", String desName = "NULL")
 {
-	 JsonBuff = "";  //Çå¿Õ»º³åÇø
-	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	 JsonObject& miniQDate = jsonBuffer.createObject();   //´´½¨¶ÔÏó
-	 miniQDate[Operator] = _Operator;    //²Ù×÷·û
+	 JsonBuff = "";  //æ¸…ç©ºç¼“å†²åŒº
+	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	 JsonObject& miniQDate = jsonBuffer.createObject();   //åˆ›å»ºå¯¹è±¡
+	 miniQDate[Operator] = _Operator;    //æ“ä½œç¬¦
 	 
-	 /*¾ßÌå¸ºÔØÒµÎñ*/
+	 /*å…·ä½“è´Ÿè½½ä¸šåŠ¡*/
 
 		miniQDate[DateBuff] = data;
 	 
-	 /*Ãû³Æ´¦Àí²¿·Ö*/
+	 /*åç§°å¤„ç†éƒ¨åˆ†*/
 	if(SoName != "NULL")
 	{
-		miniQDate[OriginalName] = SoName;  //Ô´Éè±¸Ãû
+		miniQDate[OriginalName] = SoName;  //æºè®¾å¤‡å
 	}
 	if(desName != "NULL")
 	{
-		miniQDate[TargetName] = desName;  //Ä¿±êÉè±¸Ãû³Æ
+		miniQDate[TargetName] = desName;  //ç›®æ ‡è®¾å¤‡åç§°
 	}
 	
 	 miniQDate.printTo(JsonBuff);	
 }
 
 /****************************************************************************/
-// uint16 Êı×éÀàĞÍ
+// uint16 æ•°ç»„ç±»å‹
 void miniQ::Encoding(uint16_t _Operator,uint16_t *data, int size, String SoName = "NULL", String desName = "NULL")
 {
-	 JsonBuff = "";  //Çå¿Õ»º³åÇø
-	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	 JsonObject& miniQDate = jsonBuffer.createObject();   //´´½¨¶ÔÏó
-	 miniQDate[Operator] = _Operator;    //²Ù×÷·û
+	 JsonBuff = "";  //æ¸…ç©ºç¼“å†²åŒº
+	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	 JsonObject& miniQDate = jsonBuffer.createObject();   //åˆ›å»ºå¯¹è±¡
+	 miniQDate[Operator] = _Operator;    //æ“ä½œç¬¦
 	 
-	 /*¾ßÌå¸ºÔØÒµÎñ*/
+	 /*å…·ä½“è´Ÿè½½ä¸šåŠ¡*/
 
-		 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //´´½¨Ç¶Ì×Êı×é
-		 for(byte a = 0; a<size;a++)  //Ñ­»·½«Íâ²¿Êı¾İ¶ÁÈë
+		 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //åˆ›å»ºåµŒå¥—æ•°ç»„
+		 for(byte a = 0; a<size;a++)  //å¾ªç¯å°†å¤–éƒ¨æ•°æ®è¯»å…¥
 		 {
-			 Data.add(*(data + a));  //½«Êı¾İÒÀ´Î´æÈëÇ¶Ì×Êı×éÖĞ
+			 Data.add(*(data + a));  //å°†æ•°æ®ä¾æ¬¡å­˜å…¥åµŒå¥—æ•°ç»„ä¸­
 		 }
 
-	 /*Ãû³Æ´¦Àí²¿·Ö*/
+	 /*åç§°å¤„ç†éƒ¨åˆ†*/
 	if(SoName != "NULL")
 	{
-		miniQDate[OriginalName] = SoName;  //Ô´Éè±¸Ãû
+		miniQDate[OriginalName] = SoName;  //æºè®¾å¤‡å
 	}
 	if(desName != "NULL")
 	{
-		miniQDate[TargetName] = desName;  //Ä¿±êÉè±¸Ãû³Æ
+		miniQDate[TargetName] = desName;  //ç›®æ ‡è®¾å¤‡åç§°
 	}
 	
 	 miniQDate.printTo(JsonBuff);	
 }
 
 /****************************************************************************/
-// uint16 ÀàĞÍ
+// uint16 ç±»å‹
 void miniQ::Encoding(uint16_t _Operator,uint16_t data, String SoName = "NULL", String desName = "NULL")
 {
-	 JsonBuff = "";  //Çå¿Õ»º³åÇø
-	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	 JsonObject& miniQDate = jsonBuffer.createObject();   //´´½¨¶ÔÏó
-	 miniQDate[Operator] = _Operator;    //²Ù×÷·û
+	 JsonBuff = "";  //æ¸…ç©ºç¼“å†²åŒº
+	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	 JsonObject& miniQDate = jsonBuffer.createObject();   //åˆ›å»ºå¯¹è±¡
+	 miniQDate[Operator] = _Operator;    //æ“ä½œç¬¦
 	 
-	 /*¾ßÌå¸ºÔØÒµÎñ*/
+	 /*å…·ä½“è´Ÿè½½ä¸šåŠ¡*/
 
 		miniQDate[DateBuff] = data;
 	 
-	 /*Ãû³Æ´¦Àí²¿·Ö*/
+	 /*åç§°å¤„ç†éƒ¨åˆ†*/
 	if(SoName != "NULL")
 	{
-		miniQDate[OriginalName] = SoName;  //Ô´Éè±¸Ãû
+		miniQDate[OriginalName] = SoName;  //æºè®¾å¤‡å
 	}
 	if(desName != "NULL")
 	{
-		miniQDate[TargetName] = desName;  //Ä¿±êÉè±¸Ãû³Æ
+		miniQDate[TargetName] = desName;  //ç›®æ ‡è®¾å¤‡åç§°
 	}
 	
 	 miniQDate.printTo(JsonBuff);	
@@ -310,56 +310,56 @@ void miniQ::Encoding(uint16_t _Operator,uint16_t data, String SoName = "NULL", S
 
 
 /****************************************************************************/
-// uint32 Êı×éÀàĞÍ
+// uint32 æ•°ç»„ç±»å‹
 void miniQ::Encoding(uint16_t _Operator,uint32_t *data, int size, String SoName = "NULL", String desName = "NULL")
 {
-	 JsonBuff = "";  //Çå¿Õ»º³åÇø
-	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	 JsonObject& miniQDate = jsonBuffer.createObject();   //´´½¨¶ÔÏó
-	 miniQDate[Operator] = _Operator;    //²Ù×÷·û
+	 JsonBuff = "";  //æ¸…ç©ºç¼“å†²åŒº
+	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	 JsonObject& miniQDate = jsonBuffer.createObject();   //åˆ›å»ºå¯¹è±¡
+	 miniQDate[Operator] = _Operator;    //æ“ä½œç¬¦
 	 
-	 /*¾ßÌå¸ºÔØÒµÎñ*/
+	 /*å…·ä½“è´Ÿè½½ä¸šåŠ¡*/
 
-		 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //´´½¨Ç¶Ì×Êı×é
-		 for(byte a = 0; a<size;a++)  //Ñ­»·½«Íâ²¿Êı¾İ¶ÁÈë
+		 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //åˆ›å»ºåµŒå¥—æ•°ç»„
+		 for(byte a = 0; a<size;a++)  //å¾ªç¯å°†å¤–éƒ¨æ•°æ®è¯»å…¥
 		 {
-			 Data.add(*(data + a));  //½«Êı¾İÒÀ´Î´æÈëÇ¶Ì×Êı×éÖĞ
+			 Data.add(*(data + a));  //å°†æ•°æ®ä¾æ¬¡å­˜å…¥åµŒå¥—æ•°ç»„ä¸­
 		 }
 
-	 /*Ãû³Æ´¦Àí²¿·Ö*/
+	 /*åç§°å¤„ç†éƒ¨åˆ†*/
 	if(SoName != "NULL")
 	{
-		miniQDate[OriginalName] = SoName;  //Ô´Éè±¸Ãû
+		miniQDate[OriginalName] = SoName;  //æºè®¾å¤‡å
 	}
 	if(desName != "NULL")
 	{
-		miniQDate[TargetName] = desName;  //Ä¿±êÉè±¸Ãû³Æ
+		miniQDate[TargetName] = desName;  //ç›®æ ‡è®¾å¤‡åç§°
 	}
 	
 	 miniQDate.printTo(JsonBuff);	
 }
 
 /****************************************************************************/
-// uint32 ÀàĞÍ
+// uint32 ç±»å‹
 void miniQ::Encoding(uint16_t _Operator,uint32_t data, String SoName = "NULL", String desName = "NULL")
 {
-	 JsonBuff = "";  //Çå¿Õ»º³åÇø
-	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	 JsonObject& miniQDate = jsonBuffer.createObject();   //´´½¨¶ÔÏó
-	 miniQDate[Operator] = _Operator;    //²Ù×÷·û
+	 JsonBuff = "";  //æ¸…ç©ºç¼“å†²åŒº
+	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	 JsonObject& miniQDate = jsonBuffer.createObject();   //åˆ›å»ºå¯¹è±¡
+	 miniQDate[Operator] = _Operator;    //æ“ä½œç¬¦
 	 
-	 /*¾ßÌå¸ºÔØÒµÎñ*/
+	 /*å…·ä½“è´Ÿè½½ä¸šåŠ¡*/
 
 		miniQDate[DateBuff] = data;
 	 
-	 /*Ãû³Æ´¦Àí²¿·Ö*/
+	 /*åç§°å¤„ç†éƒ¨åˆ†*/
 	if(SoName != "NULL")
 	{
-		miniQDate[OriginalName] = SoName;  //Ô´Éè±¸Ãû
+		miniQDate[OriginalName] = SoName;  //æºè®¾å¤‡å
 	}
 	if(desName != "NULL")
 	{
-		miniQDate[TargetName] = desName;  //Ä¿±êÉè±¸Ãû³Æ
+		miniQDate[TargetName] = desName;  //ç›®æ ‡è®¾å¤‡åç§°
 	}
 	
 	 miniQDate.printTo(JsonBuff);	
@@ -369,25 +369,25 @@ void miniQ::Encoding(uint16_t _Operator,uint32_t data, String SoName = "NULL", S
 //String
 void miniQ::Encoding(uint16_t _Operator,String data,String SoName = "NULL",String desName = "NULL")
 {
-	JsonBuff = "";  //Çå¿Õ»º³åÇø
-	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	JsonObject& miniQDate = jsonBuffer.createObject();   //´´½¨¶ÔÏó
-	miniQDate[Operator] = _Operator;    //²Ù×÷·û
+	JsonBuff = "";  //æ¸…ç©ºç¼“å†²åŒº
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	JsonObject& miniQDate = jsonBuffer.createObject();   //åˆ›å»ºå¯¹è±¡
+	miniQDate[Operator] = _Operator;    //æ“ä½œç¬¦
 	miniQDate[DateBuff] = data;
-	/*Ãû³Æ´¦Àí²¿·Ö*/
+	/*åç§°å¤„ç†éƒ¨åˆ†*/
 	if(SoName != "NULL")
 	{
-		miniQDate[OriginalName] = SoName;  //Ô´Éè±¸Ãû
+		miniQDate[OriginalName] = SoName;  //æºè®¾å¤‡å
 	}
 	if(desName != "NULL")
 	{
-		miniQDate[TargetName] = desName;  //Ä¿±êÉè±¸Ãû³Æ
+		miniQDate[TargetName] = desName;  //ç›®æ ‡è®¾å¤‡åç§°
 	}
 	
 	 miniQDate.printTo(JsonBuff);	
 }
 /*************************************************************************************/
-//½âÂë²¿·Ö
+//è§£ç éƒ¨åˆ†
 /*************************************************************************************/
 
 void miniQ::DateBuffing(String _JsonBuff)
@@ -396,39 +396,39 @@ void miniQ::DateBuffing(String _JsonBuff)
 	JsonBuff =_JsonBuff;
 }
 
-// ·µ»Ø²Ù×÷Âë
+// è¿”å›æ“ä½œç 
 uint16_t miniQ::oper()
 {
-	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //´´½¨ json¶ÔÏó£¨»ùÓÚÊÕµ½µÄÊı¾İ£©
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //åˆ›å»º jsonå¯¹è±¡ï¼ˆåŸºäºæ”¶åˆ°çš„æ•°æ®ï¼‰
 	  if (root.success()) 
-	  {   //ÅĞ¶Ï¶ÔÏóÊÇ·ñ·ûºÏ±ê×¼
+	  {   //åˆ¤æ–­å¯¹è±¡æ˜¯å¦ç¬¦åˆæ ‡å‡†
        uint16_t __Operator = root["O"];
        return __Operator;
      }
 }
 
-//·µ»Ø¸ºÔØÊı¾İµÄÊı×éÊıÁ¿
+//è¿”å›è´Ÿè½½æ•°æ®çš„æ•°ç»„æ•°é‡
 uint16_t miniQ::DateSizeNum()
 {
-	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //´´½¨ json¶ÔÏó£¨»ùÓÚÊÕµ½µÄÊı¾İ£©
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //åˆ›å»º jsonå¯¹è±¡ï¼ˆåŸºäºæ”¶åˆ°çš„æ•°æ®ï¼‰
 	  if (root.success()) 
-	  {   //ÅĞ¶Ï¶ÔÏóÊÇ·ñ·ûºÏ±ê×¼
+	  {   //åˆ¤æ–­å¯¹è±¡æ˜¯å¦ç¬¦åˆæ ‡å‡†
        uint16_t __Operator = root[DateBuff].size();
        return __Operator;
      }
 }
 
-// float Êı×é½âÂë
+// float æ•°ç»„è§£ç 
 
 void miniQ::Decoding(float *data)
 {
 	
-	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //´´½¨ json¶ÔÏó£¨»ùÓÚÊÕµ½µÄÊı¾İ£©
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //åˆ›å»º jsonå¯¹è±¡ï¼ˆåŸºäºæ”¶åˆ°çš„æ•°æ®ï¼‰
 	  if (root.success()) 
-	  {   //ÅĞ¶Ï¶ÔÏóÊÇ·ñ·ûºÏ±ê×¼
+	  {   //åˆ¤æ–­å¯¹è±¡æ˜¯å¦ç¬¦åˆæ ‡å‡†
        uint16_t __Operator = root[DateBuff].size();
 	   
 	   if(__Operator != 0)
@@ -446,15 +446,15 @@ void miniQ::Decoding(float *data)
 
 }
 
-// float ½âÂë
+// float è§£ç 
 
 void miniQ::Decoding(float &data)
 {
 	
-	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //´´½¨ json¶ÔÏó£¨»ùÓÚÊÕµ½µÄÊı¾İ£©
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //åˆ›å»º jsonå¯¹è±¡ï¼ˆåŸºäºæ”¶åˆ°çš„æ•°æ®ï¼‰
 	  if (root.success()) 
-	  {   //ÅĞ¶Ï¶ÔÏóÊÇ·ñ·ûºÏ±ê×¼
+	  {   //åˆ¤æ–­å¯¹è±¡æ˜¯å¦ç¬¦åˆæ ‡å‡†
        uint16_t __Operator = root[DateBuff].size();
 	   
 	   if(__Operator == 0)
@@ -472,10 +472,10 @@ void miniQ::Decoding(float &data)
 void miniQ::Decoding(int *data)
 {
 	
-	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //´´½¨ json¶ÔÏó£¨»ùÓÚÊÕµ½µÄÊı¾İ£©
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //åˆ›å»º jsonå¯¹è±¡ï¼ˆåŸºäºæ”¶åˆ°çš„æ•°æ®ï¼‰
 	  if (root.success()) 
-	  {   //ÅĞ¶Ï¶ÔÏóÊÇ·ñ·ûºÏ±ê×¼
+	  {   //åˆ¤æ–­å¯¹è±¡æ˜¯å¦ç¬¦åˆæ ‡å‡†
        uint16_t __Operator = root[DateBuff].size();
 	   
 	   if(__Operator != 0)
@@ -493,15 +493,15 @@ void miniQ::Decoding(int *data)
 
 }
 
-// int ½âÂë
+// int è§£ç 
 
 void miniQ::Decoding(int &data)
 {
 	
-	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //´´½¨ json¶ÔÏó£¨»ùÓÚÊÕµ½µÄÊı¾İ£©
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //åˆ›å»º jsonå¯¹è±¡ï¼ˆåŸºäºæ”¶åˆ°çš„æ•°æ®ï¼‰
 	  if (root.success()) 
-	  {   //ÅĞ¶Ï¶ÔÏóÊÇ·ñ·ûºÏ±ê×¼
+	  {   //åˆ¤æ–­å¯¹è±¡æ˜¯å¦ç¬¦åˆæ ‡å‡†
        uint16_t __Operator = root[DateBuff].size();
 	   
 	   if(__Operator == 0)
@@ -516,14 +516,14 @@ void miniQ::Decoding(int &data)
 
 
 /*************  long ******************/
-/*  long Êı×é */
+/*  long æ•°ç»„ */
 void miniQ::Decoding(long *data)
 {
 	
-	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //´´½¨ json¶ÔÏó£¨»ùÓÚÊÕµ½µÄÊı¾İ£©
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //åˆ›å»º jsonå¯¹è±¡ï¼ˆåŸºäºæ”¶åˆ°çš„æ•°æ®ï¼‰
 	  if (root.success()) 
-	  {   //ÅĞ¶Ï¶ÔÏóÊÇ·ñ·ûºÏ±ê×¼
+	  {   //åˆ¤æ–­å¯¹è±¡æ˜¯å¦ç¬¦åˆæ ‡å‡†
        uint16_t __Operator = root[DateBuff].size();
 	   
 	   if(__Operator != 0)
@@ -541,15 +541,15 @@ void miniQ::Decoding(long *data)
 
 }
 
-// long ½âÂë
+// long è§£ç 
 
 void miniQ::Decoding(long &data)
 {
 	
-	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //´´½¨ json¶ÔÏó£¨»ùÓÚÊÕµ½µÄÊı¾İ£©
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //åˆ›å»º jsonå¯¹è±¡ï¼ˆåŸºäºæ”¶åˆ°çš„æ•°æ®ï¼‰
 	  if (root.success()) 
-	  {   //ÅĞ¶Ï¶ÔÏóÊÇ·ñ·ûºÏ±ê×¼
+	  {   //åˆ¤æ–­å¯¹è±¡æ˜¯å¦ç¬¦åˆæ ‡å‡†
        uint16_t __Operator = root[DateBuff].size();
 	   
 	   if(__Operator == 0)
@@ -560,14 +560,14 @@ void miniQ::Decoding(long &data)
 	  }
 }
 /*************  uint8 ******************/
-/*  uint8_t Êı×é */
+/*  uint8_t æ•°ç»„ */
 void miniQ::Decoding(uint8_t *data)
 {
 	
-	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //´´½¨ json¶ÔÏó£¨»ùÓÚÊÕµ½µÄÊı¾İ£©
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //åˆ›å»º jsonå¯¹è±¡ï¼ˆåŸºäºæ”¶åˆ°çš„æ•°æ®ï¼‰
 	  if (root.success()) 
-	  {   //ÅĞ¶Ï¶ÔÏóÊÇ·ñ·ûºÏ±ê×¼
+	  {   //åˆ¤æ–­å¯¹è±¡æ˜¯å¦ç¬¦åˆæ ‡å‡†
        uint16_t __Operator = root[DateBuff].size();
 	   
 	   if(__Operator != 0)
@@ -585,15 +585,15 @@ void miniQ::Decoding(uint8_t *data)
 
 }
 
-// uint8_t ½âÂë
+// uint8_t è§£ç 
 
 void miniQ::Decoding(uint8_t &data)
 {
 	
-	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //´´½¨ json¶ÔÏó£¨»ùÓÚÊÕµ½µÄÊı¾İ£©
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //åˆ›å»º jsonå¯¹è±¡ï¼ˆåŸºäºæ”¶åˆ°çš„æ•°æ®ï¼‰
 	  if (root.success()) 
-	  {   //ÅĞ¶Ï¶ÔÏóÊÇ·ñ·ûºÏ±ê×¼
+	  {   //åˆ¤æ–­å¯¹è±¡æ˜¯å¦ç¬¦åˆæ ‡å‡†
        uint16_t __Operator = root[DateBuff].size();
 	   
 	   if(__Operator == 0)
@@ -604,14 +604,14 @@ void miniQ::Decoding(uint8_t &data)
 	  }
 }
 /*************  uint16 ******************/
-/*  uint16_t Êı×é */
+/*  uint16_t æ•°ç»„ */
 void miniQ::Decoding(uint16_t *data)
 {
 	
-	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //´´½¨ json¶ÔÏó£¨»ùÓÚÊÕµ½µÄÊı¾İ£©
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //åˆ›å»º jsonå¯¹è±¡ï¼ˆåŸºäºæ”¶åˆ°çš„æ•°æ®ï¼‰
 	  if (root.success()) 
-	  {   //ÅĞ¶Ï¶ÔÏóÊÇ·ñ·ûºÏ±ê×¼
+	  {   //åˆ¤æ–­å¯¹è±¡æ˜¯å¦ç¬¦åˆæ ‡å‡†
        uint16_t __Operator = root[DateBuff].size();
 	   
 	   if(__Operator != 0)
@@ -629,15 +629,15 @@ void miniQ::Decoding(uint16_t *data)
 
 }
 
-// uint16_t ½âÂë
+// uint16_t è§£ç 
 
 void miniQ::Decoding(uint16_t &data)
 {
 	
-	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //´´½¨ json¶ÔÏó£¨»ùÓÚÊÕµ½µÄÊı¾İ£©
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //åˆ›å»º jsonå¯¹è±¡ï¼ˆåŸºäºæ”¶åˆ°çš„æ•°æ®ï¼‰
 	  if (root.success()) 
-	  {   //ÅĞ¶Ï¶ÔÏóÊÇ·ñ·ûºÏ±ê×¼
+	  {   //åˆ¤æ–­å¯¹è±¡æ˜¯å¦ç¬¦åˆæ ‡å‡†
        uint16_t __Operator = root[DateBuff].size();
 	   
 	   if(__Operator == 0)
@@ -649,14 +649,14 @@ void miniQ::Decoding(uint16_t &data)
 }
 
 /*************  uint32 ******************/
-/*  uint32_t Êı×é */
+/*  uint32_t æ•°ç»„ */
 void miniQ::Decoding(uint32_t *data)
 {
 	
-	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //´´½¨ json¶ÔÏó£¨»ùÓÚÊÕµ½µÄÊı¾İ£©
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //åˆ›å»º jsonå¯¹è±¡ï¼ˆåŸºäºæ”¶åˆ°çš„æ•°æ®ï¼‰
 	  if (root.success()) 
-	  {   //ÅĞ¶Ï¶ÔÏóÊÇ·ñ·ûºÏ±ê×¼
+	  {   //åˆ¤æ–­å¯¹è±¡æ˜¯å¦ç¬¦åˆæ ‡å‡†
        uint16_t __Operator = root[DateBuff].size();
 	   
 	   if(__Operator != 0)
@@ -674,15 +674,15 @@ void miniQ::Decoding(uint32_t *data)
 
 }
 
-// uint32_t ½âÂë
+// uint32_t è§£ç 
 
 void miniQ::Decoding(uint32_t &data)
 {
 	
-	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //´´½¨ json¶ÔÏó£¨»ùÓÚÊÕµ½µÄÊı¾İ£©
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //åˆ›å»º jsonå¯¹è±¡ï¼ˆåŸºäºæ”¶åˆ°çš„æ•°æ®ï¼‰
 	  if (root.success()) 
-	  {   //ÅĞ¶Ï¶ÔÏóÊÇ·ñ·ûºÏ±ê×¼
+	  {   //åˆ¤æ–­å¯¹è±¡æ˜¯å¦ç¬¦åˆæ ‡å‡†
        uint16_t __Operator = root[DateBuff].size();
 	   
 	   if(__Operator == 0)
@@ -699,12 +699,12 @@ void miniQ::Decoding(char *data)
 {
 	const char* _temp;
 	
-	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //´´½¨»º³åÇø
-	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //´´½¨ json¶ÔÏó£¨»ùÓÚÊÕµ½µÄÊı¾İ£©
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //åˆ›å»ºç¼“å†²åŒº
+	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //åˆ›å»º jsonå¯¹è±¡ï¼ˆåŸºäºæ”¶åˆ°çš„æ•°æ®ï¼‰
 	  if (root.success()) 
-	  {   //ÅĞ¶Ï¶ÔÏóÊÇ·ñ·ûºÏ±ê×¼
-	    _temp = root[DateBuff]; //»ñÈ¡Êı¾İ
-	    uint16_t __Operator = strlen(_temp);  //»ñÈ¡×Ö·û´®³¤¶È
+	  {   //åˆ¤æ–­å¯¹è±¡æ˜¯å¦ç¬¦åˆæ ‡å‡†
+	    _temp = root[DateBuff]; //è·å–æ•°æ®
+	    uint16_t __Operator = strlen(_temp);  //è·å–å­—ç¬¦ä¸²é•¿åº¦
 		for(uint16_t a =0;a < __Operator;a++)
 		{
 			*(data + a) = _temp[a];

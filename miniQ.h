@@ -12,53 +12,53 @@
 #include <JSON/ArduinoJson.h>
 #endif
 
-#define JsonWorkBuff  300      //¶¨Òåjson¹¤×÷»º³åÇø´óĞ¡
-#define Operator "O"   //¶¨Òå²Ù×÷·û±êÇ©
-#define dataBuff "D"   //¶¨ÒåÊı¾İ¸ºÔØÇø±êÇ©
-#define OriginalName "F"  //¶¨ÒåÔ´Éè±¸Ãû³Æ
-#define TargetName "T"   //¶¨ÒåÄ¿±êÉè±¸Ãû³Æ
+#define JsonWorkBuff  300      //å®šä¹‰jsonå·¥ä½œç¼“å†²åŒºå¤§å°
+#define Operator "O"   //å®šä¹‰æ“ä½œç¬¦æ ‡ç­¾
+#define dataBuff "D"   //å®šä¹‰æ•°æ®è´Ÿè½½åŒºæ ‡ç­¾
+#define OriginalName "F"  //å®šä¹‰æºè®¾å¤‡åç§°
+#define TargetName "T"   //å®šä¹‰ç›®æ ‡è®¾å¤‡åç§°
 class miniQ
 {
 	public:
 		void begin();
-		/*±àÂë*/
-		void Encoding(uint16_t _Operator,String SoName,String desName);   //±àÂë
-		void Encoding(uint16_t _Operator, uint8_t *data, int size, String SoName, String desName);   //±àÂë byteÓëbyteÊı×é
-		void Encoding(uint16_t _Operator, uint8_t data, String SoName, String desName);   //±àÂë byteÓëbyteÊı×é
-		//void Encoding(uint16_t _Operator,char data, uint8_t size,String SoName,String desName);   //±àÂë char
-		void Encoding(uint16_t _Operator,int *data, int size, String SoName, String desName);   //±àÂë
-		void Encoding(uint16_t _Operator,int data, String SoName, String desName);   //±àÂë
-		void Encoding(uint16_t _Operator,float *data, int size, String SoName, String desName);   //±àÂë
-		void Encoding(uint16_t _Operator,float data, String SoName, String desName);   //±àÂë
-		void Encoding(uint16_t _Operator,long *data, int size, String SoName, String desName);   //±àÂë
-		void Encoding(uint16_t _Operator,long data, String SoName, String desName);   //±àÂë
-		void Encoding(uint16_t _Operator,uint16_t *data, int size, String SoName, String desName);   //±àÂë
-		void Encoding(uint16_t _Operator,uint16_t data, String SoName, String desName);   //±àÂë
-		void Encoding(uint16_t _Operator,uint32_t *data, int size, String SoName, String desName);   //±àÂë
-		void Encoding(uint16_t _Operator,uint32_t data, String SoName, String desName);   //±àÂë
-		void Encoding(uint16_t _Operator,String data,String SoName,String desName);   //±àÂë ×Ö·û´®
+		/*ç¼–ç */
+		void Encoding(uint16_t _Operator,String SoName,String desName);   //ç¼–ç 
+		void Encoding(uint16_t _Operator, uint8_t *data, int size, String SoName, String desName);   //ç¼–ç  byteä¸byteæ•°ç»„
+		void Encoding(uint16_t _Operator, uint8_t data, String SoName, String desName);   //ç¼–ç  byteä¸byteæ•°ç»„
+		//void Encoding(uint16_t _Operator,char data, uint8_t size,String SoName,String desName);   //ç¼–ç  char
+		void Encoding(uint16_t _Operator,int *data, int size, String SoName, String desName);   //ç¼–ç 
+		void Encoding(uint16_t _Operator,int data, String SoName, String desName);   //ç¼–ç 
+		void Encoding(uint16_t _Operator,float *data, int size, String SoName, String desName);   //ç¼–ç 
+		void Encoding(uint16_t _Operator,float data, String SoName, String desName);   //ç¼–ç 
+		void Encoding(uint16_t _Operator,long *data, int size, String SoName, String desName);   //ç¼–ç 
+		void Encoding(uint16_t _Operator,long data, String SoName, String desName);   //ç¼–ç 
+		void Encoding(uint16_t _Operator,uint16_t *data, int size, String SoName, String desName);   //ç¼–ç 
+		void Encoding(uint16_t _Operator,uint16_t data, String SoName, String desName);   //ç¼–ç 
+		void Encoding(uint16_t _Operator,uint32_t *data, int size, String SoName, String desName);   //ç¼–ç 
+		void Encoding(uint16_t _Operator,uint32_t data, String SoName, String desName);   //ç¼–ç 
+		void Encoding(uint16_t _Operator,String data,String SoName,String desName);   //ç¼–ç  å­—ç¬¦ä¸²
 		
 		
-		/*½âÂë*/
-		void dataBuffing(String _JsonBuff);    //½âÂë ´«Èë
-		uint16_t oper();   //·µ»Ø²Ù×÷·û
-		uint16_t dataSizeNum(); //·µ»ØÊı×é¸ºÔØµÄÊı×é³¤¶È
-		void Decoding(float *data);   //±äÁ¿ float Êı×é
-		void Decoding(float &data);   //±äÁ¿ float
-		void Decoding(int *data);   //±äÁ¿ int Êı×é
-		void Decoding(int &data);   //±äÁ¿ int 
-		void Decoding(long *data);   //±äÁ¿ long Êı×é
-		void Decoding(long &data);   //±äÁ¿ long
-		void Decoding(uint8_t *data); //±äÁ¿ uint8Êı×é
-		void Decoding(uint8_t &data); //±äÁ¿ uint8
-		void Decoding(uint16_t *data); //±äÁ¿ uint16Êı×é
-		void Decoding(uint16_t &data); //±äÁ¿ uint16
-		void Decoding(uint32_t *data); //±äÁ¿ uint32Êı×é
-		void Decoding(uint32_t &data); //±äÁ¿ uint32
-		void Decoding(char *data); //×Ö·û´®
+		/*è§£ç */
+		void dataBuffing(String _JsonBuff);    //è§£ç  ä¼ å…¥
+		uint16_t oper();   //è¿”å›æ“ä½œç¬¦
+		uint16_t dataSizeNum(); //è¿”å›æ•°ç»„è´Ÿè½½çš„æ•°ç»„é•¿åº¦
+		void Decoding(float *data);   //å˜é‡ float æ•°ç»„
+		void Decoding(float &data);   //å˜é‡ float
+		void Decoding(int *data);   //å˜é‡ int æ•°ç»„
+		void Decoding(int &data);   //å˜é‡ int 
+		void Decoding(long *data);   //å˜é‡ long æ•°ç»„
+		void Decoding(long &data);   //å˜é‡ long
+		void Decoding(uint8_t *data); //å˜é‡ uint8æ•°ç»„
+		void Decoding(uint8_t &data); //å˜é‡ uint8
+		void Decoding(uint16_t *data); //å˜é‡ uint16æ•°ç»„
+		void Decoding(uint16_t &data); //å˜é‡ uint16
+		void Decoding(uint32_t *data); //å˜é‡ uint32æ•°ç»„
+		void Decoding(uint32_t &data); //å˜é‡ uint32
+		void Decoding(char *data); //å­—ç¬¦ä¸²
 		
 		
-		//void dataBuffOUT(String _Jsondata,f);   //±äÁ¿¿ÉÄÜĞÔ    char£¬short£¬int»òlong£¨ÓĞ·ûºÅ»òÎŞ·ûºÅ£©
+		//void dataBuffOUT(String _Jsondata,f);   //å˜é‡å¯èƒ½æ€§    charï¼Œshortï¼Œintæˆ–longï¼ˆæœ‰ç¬¦å·æˆ–æ— ç¬¦å·ï¼‰
 		
 		String JsonBuff = "";
 
