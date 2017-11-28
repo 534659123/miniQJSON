@@ -14,7 +14,7 @@
 
 #define JsonWorkBuff  300      //定义json工作缓冲区大小
 #define Operator "O"   //定义操作符标签
-#define dataBuff "D"   //定义数据负载区标签
+#define DataBuff "D"   //定义数据负载区标签
 #define OriginalName "F"  //定义源设备名称
 #define TargetName "T"   //定义目标设备名称
 class miniQ

@@ -37,7 +37,7 @@ void miniQ::Encoding(uint16_t _Operator,uint8_t* data, int size,String SoName = 
 	 
 	 /*具体负载业务*/
 
-		 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //创建嵌套数组
+		 JsonArray& Data = miniQDate.createNestedArray(DataBuff);  //创建嵌套数组
 		 for(byte a = 0; a<size;a++)  //循环将外部数据读入
 		 {
 			 Data.add(*(data + a));  //将数据依次存入嵌套数组中
@@ -67,7 +67,7 @@ void miniQ::Encoding(uint16_t _Operator,uint8_t data,String SoName = "NULL",Stri
 	 
 	 /*具体负载业务*/
 	
-	miniQDate[DateBuff] = data; //存入负载
+	miniQDate[DataBuff] = data; //存入负载
 	 
 	 /*名称处理部分*/
 	if(SoName != "NULL")
@@ -91,7 +91,7 @@ void miniQ::Encoding(uint16_t _Operator,int* data,int size, String SoName = "NUL
 	 miniQDate[Operator] = _Operator;    //操作符
 	 
 	 /*具体负载业务*/
-	 	 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //创建嵌套数组
+	 	 JsonArray& Data = miniQDate.createNestedArray(DataBuff);  //创建嵌套数组
 		 for(byte a = 0; a<size;a++)  //循环将外部数据读入
 		 {
 			 Data.add(*(data + a));  //将数据依次存入嵌套数组中
@@ -121,7 +121,7 @@ void miniQ::Encoding(uint16_t _Operator,int data, String SoName = "NULL", String
 	 miniQDate[Operator] = _Operator;    //操作符
 	 
 	 /*具体负载业务*/
-		 miniQDate[DateBuff] = data;
+		 miniQDate[DataBuff] = data;
 	 
 	 /*名称处理部分*/
 	if(SoName != "NULL")
@@ -149,7 +149,7 @@ void miniQ::Encoding(uint16_t _Operator,float *data, int size, String SoName = "
 	 
 	 /*具体负载业务*/
 
-	 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //创建嵌套数组
+	 JsonArray& Data = miniQDate.createNestedArray(DataBuff);  //创建嵌套数组
 	 for(byte a = 0; a<size;a++)  //循环将外部数据读入
 	 {
 		 Data.add(double_with_n_digits(*(data + a),2));  //将数据依次存入嵌套数组中
@@ -180,7 +180,7 @@ void miniQ::Encoding(uint16_t _Operator,float data, String SoName = "NULL", Stri
 	 
 	 /*具体负载业务*/
 
-		miniQDate[DateBuff] = double_with_n_digits(data,2);
+		miniQDate[DataBuff] = double_with_n_digits(data,2);
 	 
 	 /*名称处理部分*/
 	if(SoName != "NULL")
@@ -207,7 +207,7 @@ void miniQ::Encoding(uint16_t _Operator,long *data, int size, String SoName = "N
 	 
 	 /*具体负载业务*/
 
-		 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //创建嵌套数组
+		 JsonArray& Data = miniQDate.createNestedArray(DataBuff);  //创建嵌套数组
 		 for(byte a = 0; a<size;a++)  //循环将外部数据读入
 		 {
 			 Data.add(*(data + a));  //将数据依次存入嵌套数组中
@@ -237,7 +237,7 @@ void miniQ::Encoding(uint16_t _Operator,long data, String SoName = "NULL", Strin
 	 
 	 /*具体负载业务*/
 
-		miniQDate[DateBuff] = data;
+		miniQDate[DataBuff] = data;
 	 
 	 /*名称处理部分*/
 	if(SoName != "NULL")
@@ -263,7 +263,7 @@ void miniQ::Encoding(uint16_t _Operator,uint16_t *data, int size, String SoName 
 	 
 	 /*具体负载业务*/
 
-		 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //创建嵌套数组
+		 JsonArray& Data = miniQDate.createNestedArray(DataBuff);  //创建嵌套数组
 		 for(byte a = 0; a<size;a++)  //循环将外部数据读入
 		 {
 			 Data.add(*(data + a));  //将数据依次存入嵌套数组中
@@ -293,7 +293,7 @@ void miniQ::Encoding(uint16_t _Operator,uint16_t data, String SoName = "NULL", S
 	 
 	 /*具体负载业务*/
 
-		miniQDate[DateBuff] = data;
+		miniQDate[DataBuff] = data;
 	 
 	 /*名称处理部分*/
 	if(SoName != "NULL")
@@ -320,7 +320,7 @@ void miniQ::Encoding(uint16_t _Operator,uint32_t *data, int size, String SoName 
 	 
 	 /*具体负载业务*/
 
-		 JsonArray& Data = miniQDate.createNestedArray(DateBuff);  //创建嵌套数组
+		 JsonArray& Data = miniQDate.createNestedArray(DataBuff);  //创建嵌套数组
 		 for(byte a = 0; a<size;a++)  //循环将外部数据读入
 		 {
 			 Data.add(*(data + a));  //将数据依次存入嵌套数组中
@@ -350,7 +350,7 @@ void miniQ::Encoding(uint16_t _Operator,uint32_t data, String SoName = "NULL", S
 	 
 	 /*具体负载业务*/
 
-		miniQDate[DateBuff] = data;
+		miniQDate[DataBuff] = data;
 	 
 	 /*名称处理部分*/
 	if(SoName != "NULL")
@@ -373,7 +373,7 @@ void miniQ::Encoding(uint16_t _Operator,String data,String SoName = "NULL",Strin
 	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
 	JsonObject& miniQDate = jsonBuffer.createObject();   //创建对象
 	miniQDate[Operator] = _Operator;    //操作符
-	miniQDate[DateBuff] = data;
+	miniQDate[DataBuff] = data;
 	/*名称处理部分*/
 	if(SoName != "NULL")
 	{
@@ -390,7 +390,7 @@ void miniQ::Encoding(uint16_t _Operator,String data,String SoName = "NULL",Strin
 //解码部分
 /*************************************************************************************/
 
-void miniQ::DateBuffing(String _JsonBuff)
+void miniQ::dataBuffing(String _JsonBuff)
 {
 	JsonBuff = "";
 	JsonBuff =_JsonBuff;
@@ -409,13 +409,13 @@ uint16_t miniQ::oper()
 }
 
 //返回负载数据的数组数量
-uint16_t miniQ::DateSizeNum()
+uint16_t miniQ::dataSizeNum()
 {
 	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
 	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
 	  if (root.success()) 
 	  {   //判断对象是否符合标准
-       uint16_t __Operator = root[DateBuff].size();
+       uint16_t __Operator = root[DataBuff].size();
        return __Operator;
      }
 }
@@ -429,17 +429,17 @@ void miniQ::Decoding(float *data)
 	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
 	  if (root.success()) 
 	  {   //判断对象是否符合标准
-       uint16_t __Operator = root[DateBuff].size();
+       uint16_t __Operator = root[DataBuff].size();
 	   
 	   if(__Operator != 0)
 	   {
 		   for(uint16_t a =0;a < __Operator;a++)
 		   {
-			   *(data + a) = root[DateBuff][a];
+			   *(data + a) = root[DataBuff][a];
 		   }
 	   }else
 	   {
-		   //*data = root[DateBuff];
+		   //*data = root[DataBuff];
 	   }
 	   
 	  }
@@ -455,11 +455,11 @@ void miniQ::Decoding(float &data)
 	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
 	  if (root.success()) 
 	  {   //判断对象是否符合标准
-       uint16_t __Operator = root[DateBuff].size();
+       uint16_t __Operator = root[DataBuff].size();
 	   
 	   if(__Operator == 0)
 	   {
-		  data = root[DateBuff];
+		  data = root[DataBuff];
 	   }
 	
 	   
@@ -476,17 +476,17 @@ void miniQ::Decoding(int *data)
 	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
 	  if (root.success()) 
 	  {   //判断对象是否符合标准
-       uint16_t __Operator = root[DateBuff].size();
+       uint16_t __Operator = root[DataBuff].size();
 	   
 	   if(__Operator != 0)
 	   {
 		   for(uint16_t a =0;a < __Operator;a++)
 		   {
-			   *(data + a) = root[DateBuff][a];
+			   *(data + a) = root[DataBuff][a];
 		   }
 	   }else
 	   {
-		   //*data = root[DateBuff];
+		   //*data = root[DataBuff];
 	   }
 	   
 	  }
@@ -502,11 +502,11 @@ void miniQ::Decoding(int &data)
 	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
 	  if (root.success()) 
 	  {   //判断对象是否符合标准
-       uint16_t __Operator = root[DateBuff].size();
+       uint16_t __Operator = root[DataBuff].size();
 	   
 	   if(__Operator == 0)
 	   {
-		  data = root[DateBuff];
+		  data = root[DataBuff];
 	   }
 	
 	   
@@ -524,17 +524,17 @@ void miniQ::Decoding(long *data)
 	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
 	  if (root.success()) 
 	  {   //判断对象是否符合标准
-       uint16_t __Operator = root[DateBuff].size();
+       uint16_t __Operator = root[DataBuff].size();
 	   
 	   if(__Operator != 0)
 	   {
 		   for(uint16_t a =0;a < __Operator;a++)
 		   {
-			   *(data + a) = root[DateBuff][a];
+			   *(data + a) = root[DataBuff][a];
 		   }
 	   }else
 	   {
-		   //*data = root[DateBuff];
+		   //*data = root[DataBuff];
 	   }
 	   
 	  }
@@ -550,11 +550,11 @@ void miniQ::Decoding(long &data)
 	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
 	  if (root.success()) 
 	  {   //判断对象是否符合标准
-       uint16_t __Operator = root[DateBuff].size();
+       uint16_t __Operator = root[DataBuff].size();
 	   
 	   if(__Operator == 0)
 	   {
-		  data = root[DateBuff];
+		  data = root[DataBuff];
 	   }
 	
 	  }
@@ -568,17 +568,17 @@ void miniQ::Decoding(uint8_t *data)
 	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
 	  if (root.success()) 
 	  {   //判断对象是否符合标准
-       uint16_t __Operator = root[DateBuff].size();
+       uint16_t __Operator = root[DataBuff].size();
 	   
 	   if(__Operator != 0)
 	   {
 		   for(uint16_t a =0;a < __Operator;a++)
 		   {
-			   *(data + a) = root[DateBuff][a];
+			   *(data + a) = root[DataBuff][a];
 		   }
 	   }else
 	   {
-		   //*data = root[DateBuff];
+		   //*data = root[DataBuff];
 	   }
 	   
 	  }
@@ -594,11 +594,11 @@ void miniQ::Decoding(uint8_t &data)
 	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
 	  if (root.success()) 
 	  {   //判断对象是否符合标准
-       uint16_t __Operator = root[DateBuff].size();
+       uint16_t __Operator = root[DataBuff].size();
 	   
 	   if(__Operator == 0)
 	   {
-		  data = root[DateBuff];
+		  data = root[DataBuff];
 	   }
 	
 	  }
@@ -612,17 +612,17 @@ void miniQ::Decoding(uint16_t *data)
 	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
 	  if (root.success()) 
 	  {   //判断对象是否符合标准
-       uint16_t __Operator = root[DateBuff].size();
+       uint16_t __Operator = root[DataBuff].size();
 	   
 	   if(__Operator != 0)
 	   {
 		   for(uint16_t a =0;a < __Operator;a++)
 		   {
-			   *(data + a) = root[DateBuff][a];
+			   *(data + a) = root[DataBuff][a];
 		   }
 	   }else
 	   {
-		   //*data = root[DateBuff];
+		   //*data = root[DataBuff];
 	   }
 	   
 	  }
@@ -638,11 +638,11 @@ void miniQ::Decoding(uint16_t &data)
 	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
 	  if (root.success()) 
 	  {   //判断对象是否符合标准
-       uint16_t __Operator = root[DateBuff].size();
+       uint16_t __Operator = root[DataBuff].size();
 	   
 	   if(__Operator == 0)
 	   {
-		  data = root[DateBuff];
+		  data = root[DataBuff];
 	   }
 	
 	  }
@@ -657,17 +657,17 @@ void miniQ::Decoding(uint32_t *data)
 	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
 	  if (root.success()) 
 	  {   //判断对象是否符合标准
-       uint16_t __Operator = root[DateBuff].size();
+       uint16_t __Operator = root[DataBuff].size();
 	   
 	   if(__Operator != 0)
 	   {
 		   for(uint16_t a =0;a < __Operator;a++)
 		   {
-			   *(data + a) = root[DateBuff][a];
+			   *(data + a) = root[DataBuff][a];
 		   }
 	   }else
 	   {
-		   //*data = root[DateBuff];
+		   //*data = root[DataBuff];
 	   }
 	   
 	  }
@@ -683,11 +683,11 @@ void miniQ::Decoding(uint32_t &data)
 	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
 	  if (root.success()) 
 	  {   //判断对象是否符合标准
-       uint16_t __Operator = root[DateBuff].size();
+       uint16_t __Operator = root[DataBuff].size();
 	   
 	   if(__Operator == 0)
 	   {
-		  data = root[DateBuff];
+		  data = root[DataBuff];
 	   }
 	
 	  }
@@ -703,7 +703,7 @@ void miniQ::Decoding(char *data)
 	JsonObject& root = jsonBuffer.parseObject(JsonBuff);   //创建 json对象（基于收到的数据）
 	  if (root.success()) 
 	  {   //判断对象是否符合标准
-	    _temp = root[DateBuff]; //获取数据
+	    _temp = root[DataBuff]; //获取数据
 	    uint16_t __Operator = strlen(_temp);  //获取字符串长度
 		for(uint16_t a =0;a < __Operator;a++)
 		{
