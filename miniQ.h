@@ -12,7 +12,7 @@
 #include <JSON/ArduinoJson.h>
 #endif
 
-#define JsonWorkBuff  300      //定义json工作缓冲区大小
+#define JsonWorkBuff  200      //定义json工作缓冲区大小
 #define Operator "O"   //定义操作符标签
 #define DataBuff "D"   //定义数据负载区标签
 #define OriginalName "F"  //定义源设备名称
@@ -23,29 +23,37 @@ class miniQ
 		void begin();
 		/*编码*/
 		void Encoding(uint16_t _Operator,String SoName,String desName);   //编码【操作码，数据（数组），长度，发送方，接收方】
+		void Encoding(uint16_t _Operator);   //编码【操作码，数据（数组），长度，发送方，接收方】
 		//uint8_t
 		void Encoding(uint16_t _Operator, uint8_t *data, int size, String SoName, String desName);   //编码 byte与byte数组
 		void Encoding(uint16_t _Operator, uint8_t data, String SoName, String desName);   //编码 byte与byte数组
+		void Encoding(uint16_t _Operator, uint8_t data);   //编码 byte与byte数组
 		
 		//void Encoding(uint16_t _Operator,char data, uint8_t size,String SoName,String desName);   //编码 char
 		//int
 		void Encoding(uint16_t _Operator,int *data, int size, String SoName, String desName);   //编码
 		void Encoding(uint16_t _Operator,int data, String SoName, String desName);   //编码
+		//void Encoding(uint16_t _Operator,int data);   //编码
 		//float
 		void Encoding(uint16_t _Operator,float *data, int size, String SoName, String desName);   //编码
 		void Encoding(uint16_t _Operator,float data, String SoName, String desName);   //编码
+		void Encoding(uint16_t _Operator,float data);   //编码
 		//long
 		void Encoding(uint16_t _Operator,long *data, int size, String SoName, String desName);   //编码
 		void Encoding(uint16_t _Operator,long data, String SoName, String desName);   //编码
+		void Encoding(uint16_t _Operator,long data);   //编码
 		//uint
 		void Encoding(uint16_t _Operator,uint16_t *data, int size, String SoName, String desName);   //编码
 		void Encoding(uint16_t _Operator,uint16_t data, String SoName, String desName);   //编码
+		void Encoding(uint16_t _Operator,uint16_t data);   //编码
 		//uint32
 		void Encoding(uint16_t _Operator,uint32_t *data, int size, String SoName, String desName);   //编码
 		void Encoding(uint16_t _Operator,uint32_t data, String SoName, String desName);   //编码
+		void Encoding(uint16_t _Operator,uint32_t data);   //编码
 		
 		//string
 		void Encoding(uint16_t _Operator,String data,String SoName,String desName);   //编码 字符串
+		void Encoding(uint16_t _Operator,String data);   //编码 字符串
 		
 		
 		/*解码*/

@@ -157,21 +157,16 @@ void miniQ::Encoding(uint16_t _Operator,float *data, int size, String SoName = "
 
 	 
 	 /*名称处理部分*/
-	if(SoName != "NULL")
-	{
-		miniQDate[OriginalName] = SoName;  //源设备名
-	}
-	if(desName != "NULL")
-	{
-		miniQDate[TargetName] = desName;  //目标设备名称
-	}
-	
-	 miniQDate.printTo(JsonBuff);	
+
+	miniQDate[OriginalName] = SoName;  //源设备名
+	miniQDate[TargetName] = desName;  //目标设备名称
+	miniQDate.printTo(JsonBuff);	
 }
+
 
 /****************************************************************************/
 // float 类型
-void miniQ::Encoding(uint16_t _Operator,float data, String SoName = "NULL", String desName = "NULL")
+void miniQ::Encoding(uint16_t _Operator,float data, String SoName,String desName)
 {
 	 JsonBuff = "";  //清空缓冲区
 	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -180,19 +175,25 @@ void miniQ::Encoding(uint16_t _Operator,float data, String SoName = "NULL", Stri
 	 
 	 /*具体负载业务*/
 
-		miniQDate[DataBuff] = double_with_n_digits(data,2);
-	 
+	miniQDate[DataBuff] = double_with_n_digits(data,2);
 	 /*名称处理部分*/
-	if(SoName != "NULL")
-	{
-		miniQDate[OriginalName] = SoName;  //源设备名
-	}
-	if(desName != "NULL")
-	{
-		miniQDate[TargetName] = desName;  //目标设备名称
-	}
-	
-	 miniQDate.printTo(JsonBuff);	
+	miniQDate[OriginalName] = SoName;  //源设备名
+	miniQDate[TargetName] = desName;  //目标设备名称
+	miniQDate.printTo(JsonBuff);	
+}
+
+void miniQ::Encoding(uint16_t _Operator,float data)
+{
+	 JsonBuff = "";  //清空缓冲区
+	 StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
+	 JsonObject& miniQDate = jsonBuffer.createObject();   //创建对象
+	 miniQDate[Operator] = _Operator;    //操作符
+	 
+	 /*具体负载业务*/
+	miniQDate[DataBuff] = double_with_n_digits(data,2);  //保留两位小数
+	 /*名称处理部分*/
+
+	miniQDate.printTo(JsonBuff);	
 }
 
 
@@ -367,7 +368,7 @@ void miniQ::Encoding(uint16_t _Operator,uint32_t data, String SoName = "NULL", S
 
 /******************************************************************************/
 //String
-void miniQ::Encoding(uint16_t _Operator,String data,String SoName = "NULL",String desName = "NULL")
+void miniQ::Encoding(uint16_t _Operator,String data,String SoName,String desName)
 {
 	JsonBuff = "";  //清空缓冲区
 	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
@@ -375,17 +376,25 @@ void miniQ::Encoding(uint16_t _Operator,String data,String SoName = "NULL",Strin
 	miniQDate[Operator] = _Operator;    //操作符
 	miniQDate[DataBuff] = data;
 	/*名称处理部分*/
-	if(SoName != "NULL")
-	{
-		miniQDate[OriginalName] = SoName;  //源设备名
-	}
-	if(desName != "NULL")
-	{
-		miniQDate[TargetName] = desName;  //目标设备名称
-	}
-	
-	 miniQDate.printTo(JsonBuff);	
+	miniQDate[OriginalName] = SoName;  //源设备名
+    miniQDate[TargetName] = desName;  //目标设备名称	
+	miniQDate.printTo(JsonBuff);	
 }
+
+void miniQ::Encoding(uint16_t _Operator,String data)
+{
+	JsonBuff = "";  //清空缓冲区
+	StaticJsonBuffer<JsonWorkBuff>  jsonBuffer;   //创建缓冲区
+	JsonObject& miniQDate = jsonBuffer.createObject();   //创建对象
+	miniQDate[Operator] = _Operator;    //操作符
+	miniQDate[DataBuff] = data;
+	miniQDate.printTo(JsonBuff);	  //编码传出
+}
+
+
+
+
+
 /*************************************************************************************/
 //解码部分
 /*************************************************************************************/
